@@ -4,7 +4,9 @@ setup(
     name='general_python_utilities',
     version='0.1',
     packages=find_packages(),
-    install_requires=[],
+    install_requires=[
+        'psutil',
+    ],
     include_package_data=True,
     package_data={},
     description='A Python module with reusable functions for various projects',
