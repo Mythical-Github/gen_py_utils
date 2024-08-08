@@ -7,4 +7,4 @@ A Python module with reusable functions for various projects.
 You can install this package via pip:
 
 ```bash
-pip install git+https://github.com/Mythical-Github/general_python_utilities.git
+pip install git+https://github.com/Mythical-Github/gen_py_utils.git
