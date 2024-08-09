@@ -1,7 +1,8 @@
 import os
 import glob
-import psutil
 import hashlib
+
+import psutil
 
 
 def check_file_exists(file_path: str) -> bool:
