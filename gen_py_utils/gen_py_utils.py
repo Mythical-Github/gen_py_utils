@@ -101,16 +101,13 @@ def get_file_extension(file_path: str) -> str:
 # returns .extension not extension
 def get_file_extensions(file_path: str) -> list:
     directory = os.path.dirname(file_path)
-    base_name = os.path.basename(file_path)
-    
+    base_name = os.path.splitext(os.path.basename(file_path))[0]
     extensions = set()
-    
     for root, dirs, files in os.walk(directory):
         for file in files:
-            if os.path.splitext(file)[0] == base_name:
-                ext = os.path.splitext(file)[1]
-                if ext:
-                    extensions.add(ext)
+            file_base_name, ext = os.path.splitext(file)
+            if file_base_name == base_name and ext:
+                extensions.add(ext)
     return sorted(extensions)
 
 
