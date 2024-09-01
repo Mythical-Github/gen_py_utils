@@ -23,7 +23,12 @@ def download_file(url: str, download_path: str):
 
 
 def open_dir_in_file_browser(input_directory: str):
-    os.system(f'start "{input_directory}"')
+    formatted_directory = os.path.abspath(input_directory)
+    if not os.path.isdir(formatted_directory):
+        print(f"Error: The directory '{formatted_directory}' does not exist.")
+        return
+    command = f'start "" "{formatted_directory}"'
+    os.system(command)
 
 
 def open_file_in_default(file_path: str):
