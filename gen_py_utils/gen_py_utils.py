@@ -23,7 +23,7 @@ def download_file(url: str, download_path: str):
 
 
 def open_dir_in_file_browser(input_directory: str):
-    os.system(f'explorer "{input_directory}"')
+    os.system(f'start "{input_directory}"')
 
 
 def open_file_in_default(file_path: str):
