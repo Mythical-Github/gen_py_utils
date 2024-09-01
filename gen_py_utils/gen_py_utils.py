@@ -1,8 +1,37 @@
 import os
 import glob
+import zipfile
 import hashlib
+import requests
 
 import psutil
+
+
+def unzip_zip(zip_path: str, output_location: str):
+    if os.path.exists(zip_path):
+        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+            zip_ref.extractall(output_location)
+
+
+def download_file(url: str, download_path: str):
+    response = requests.get(url, stream=True)
+    if response.status_code == 200:
+        with open(download_path, 'wb') as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                if chunk:
+                    f.write(chunk)
+
+
+def open_dir_in_file_browser(input_directory: str):
+    os.system(f'explorer {input_directory}')
+
+
+def open_file_in_default(file_path: str):
+    os.system(f'start {file_path}')
+
+
+def open_website(input_url: str):
+    os.system(f'start {input_url}')
 
 
 def check_file_exists(file_path: str) -> bool:
